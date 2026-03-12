@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  database:
+    image: "postgres:latest"
+    ports:
+      - "5435:5432"
+    environment:
+      USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "task_manager"
+    volumes:
+      - ./db-data-task-manager:/var/lib/postgresql/data
