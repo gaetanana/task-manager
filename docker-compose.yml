@@ -2,7 +2,8 @@ version: "3"
 
 services:
   database:
-    image: "postgres:latest"
+    image: "postgres:17"
+    container_name: "task_manager_db"
     ports:
       - "5435:5432"
     environment:
@@ -11,3 +12,13 @@ services:
       POSTGRES_DB: "task_manager"
     volumes:
       - ./db-data-task-manager:/var/lib/postgresql/data
+  adminer:
+    image: "adminer:5.4.2"
+    container_name: "adminer"
+    restart: always
+    environment:
+      - ADMINER_DEFAULT_DB_HOST=database
+      - ADMINER_DEFAULT_DB_DRIVER=pgsql
+      - ADMINER_PLUGINS=tables-filter
+    ports:
+      - 82:8080

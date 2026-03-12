@@ -2,14 +2,22 @@
     "name": "@task-manager/root",
     "version": "0.0.0",
     "scripts": {
+        "install:all": "npm install && cd ./back-task-manager && npm install && cd ../web-task-manager && npm install && cd ..",
         "build:web": "cd ./web-task-manager && npm run build",
         "build:server": "cd ./back-task-manager && npm run build",
         "build": "concurrently \"npm run build:server\" \"npm run build:web\"",
         "start:web": "cd ./web-task-manager && npm run dev",
         "start:server": "cd ./back-task-manager && npm start",
-        "start": "concurrently \"npm run start:server\" \"npm run start:web\""
+        "start": "concurrently \"npm run start:server\" \"npm run start:web\"",
+        "db:push": "cd ./prisma && npx prisma db push",
+        "db:seed": "cd ./prisma && npx prisma db seed",
+        "db:generate": "cd ./prisma && npx prisma generate",
+        "db:migrate": "cd ./prisma && npx prisma migrate dev"
     },
     "devDependencies": {
-        "concurrently": "^9.2.1"
+        "@types/node": "25.4.0",
+        "concurrently": "9.2.1",
+        "ts-node": "10.9.2",
+        "typescript": "5.3.3"
     }
 }

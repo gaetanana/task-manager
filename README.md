@@ -40,7 +40,6 @@ cd task-manager
 ### Étape 2 : Installer les dépendances
 ```bash
 npm install
-npm run install:all
 ```
 
 ### Étape 3 : Configurer la base de données
@@ -58,10 +57,11 @@ La base de données PostgreSQL sera disponible à `localhost:5434` avec :
 
 ### Étape 4 : Migrer la base de données
 ```bash
-cd back-task-manager
-npx prisma migrate deploy
-npx prisma db seed  # (optionnel)
+npm run db:generate
+npm run db:push
 ```
+
+Faire attention au proxy si vous en avez un 
 
 ### Étape 5 : Démarrer l'application
 ```bash
