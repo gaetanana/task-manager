@@ -1,2 +1,4 @@
-node_modulesp
+node_modules
 package-lock.json
+.env
+db-data-task-manager
