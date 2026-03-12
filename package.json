@@ -1,0 +1,15 @@
+{
+    "name": "@task-manager/root",
+    "version": "0.0.0",
+    "scripts": {
+        "build:web": "cd ./web-task-manager && npm run build",
+        "build:server": "cd ./back-task-manager && npm run build",
+        "build": "concurrently \"npm run build:server\" \"npm run build:web\"",
+        "start:web": "cd ./web-task-manager && npm run dev",
+        "start:server": "cd ./back-task-manager && npm start",
+        "start": "concurrently \"npm run start:server\" \"npm run start:web\""
+    },
+    "devDependencies": {
+        "concurrently": "^9.2.1"
+    }
+}
